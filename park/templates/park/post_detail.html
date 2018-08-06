@@ -1,0 +1,10 @@
+{% extends 'park/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <h1>{{ post.vehicleType }}</h1>
+        <p>{{ post.number}}</p>
+        <p>{{ post.amount }}</p>
+        <p>{{ post.timeIn|linebreaksbr }}</p>
+    </div>
+{% endblock %}

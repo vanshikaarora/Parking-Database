@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import include
+from django.conf.urls import url, include
+from park.resources import PostResource
+
+post_resource=PostResource()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('park.urls')),
+    path('post/',include(post_resource.urls))
 ]
