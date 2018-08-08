@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from .forms import PostForm
+from django.views.decorators.csrf import csrf_exempt
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -10,6 +11,7 @@ def post_list(request):
     posts = Post.objects.all()
     return render(request, 'park/post_list.html', {'posts': posts})
 
+@csrf_exempt
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
