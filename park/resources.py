@@ -1,5 +1,5 @@
 from tastypie.resources import ModelResource
-from park.models import Post
+from .models import Post
 from tastypie.authorization import Authorization
 
 class PostResource(ModelResource):

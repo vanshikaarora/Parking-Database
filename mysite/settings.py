@@ -25,7 +25,7 @@ SECRET_KEY = 'yxlm90@2^&op0wp)jj3j%b@)8v%+p(+faf8p-&e)x*cu7(+1uc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com','192.168.43.145']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'park',
+    'tastypie',
 ]
 
 MIDDLEWARE = [
