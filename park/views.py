@@ -8,8 +8,8 @@ from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie, csrf_p
 from django.utils.decorators import method_decorator
 
 @csrf_exempt
-def post_detail(request, pk):
-    post = get_object_or_404(Post,pk=pk)
+def post_detail(request, number,id=None):
+    post = get_object_or_404(Post,number=number)
     return render(request, 'park/post_detail.html', {'post': post})
 
 @csrf_exempt
@@ -28,15 +28,17 @@ def post_new(request):
             post.author = request.user
             #post.published_date = timezone.now()
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('post_detail', number=post.number)
     else:
         form = PostForm()
     return render(request, 'park/post_edit.html', {'form': form})
 
 
-def post_dates(request):
-    posts = DatePost.objects.all()
+def post_dates(request,number):
+    #posts = DatePost.objects.all()
+    posts=DatePost.objects.get(id=id)
     #posts = get_object_or_404(Post,pk=pk)
+    #posts=get_object_or_404(Post,number=number)
     return render(request,'park/post_dates.html',{'posts':posts})
 
 
@@ -48,7 +50,7 @@ def post_update(request):
             post.author = request.user
             #post.published_date = timezone.now()
             post.save()
-            return redirect('post_detail',pk=post.pk)
+            return redirect('post_detail',id=post.id)
     else:
         form = DateForm()
     return render(request, 'park/post_update.html', {'form': form})

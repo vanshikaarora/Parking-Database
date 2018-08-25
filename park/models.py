@@ -17,5 +17,8 @@ class Post(models.Model):
 
 
 class DatePost(models.Model):
-    vehicleNumber = models.CharField(max_length=10, blank=True, primary_key=True,default='number')
-    date = models.CharField(max_length=50, blank=True)
+    #vehicleNumber = models.CharField(max_length=10, blank=True, primary_key=True,default='number')
+    #date = models.CharField(max_length=50, blank=True)
+    vehicleNumber=models.ForeignKey(Post, on_delete=models.CASCADE, max_length=10)
+    date=models.CharField(max_length=25, blank=True)
+    id=models.IntegerField(primary_key=True)

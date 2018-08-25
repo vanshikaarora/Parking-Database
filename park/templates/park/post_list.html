@@ -3,7 +3,7 @@
 {% block content %}
     {% for post in posts %}
         <div class="post">
-            <h1><a href="{% url 'post_dates' pk=post.pk %}">{{ post.number }}</a></h1>
+            <h1><a href="{% url 'post_dates' number=post.number %}">{{ post.number }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
